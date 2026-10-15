@@ -1,0 +1,788 @@
+:root {
+  /* Template 39 Theme Colors */
+  --color-bg: #FFFFFF;
+  --color-bg-page: #FAF8F5;
+  --color-bg-card: #FFFFFF;
+  --color-primary: #8B2F30; /* Template 39 deep burgundy */
+  --color-burgundy: #8B2F30;
+  --color-burgundy-dark: #6C1E20;
+  --color-burgundy-light: #FBF0F1;
+  --color-text-main: #1A1A1A;
+  --color-text-serif: #2A2A2A;
+  --color-text-muted: #555555;
+  --color-text-light: #888888;
+  --color-border: #E8E5E0;
+  --color-border-subtle: #F0ECE6;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  /* Typography matching Template 39 */
+  --font-script: 'Great Vibes', 'Alex Brush', cursive;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Prata', 'Playfair Display', serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Dimensions */
+  --app-max-width: 500px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background-color: #201A1B;
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 47, 48, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 47, 48, 0.6);
+}
+
+/* Typography Utility Classes */
+.font-script { font-family: var(--font-script); }
+.font-serif { font-family: var(--font-serif); }
+.font-editorial { font-family: var(--font-editorial); }
+.font-sans { font-family: var(--font-sans); }
+
+.text-burgundy {
+  color: var(--color-burgundy);
+}
+
+/* App Viewport & Frame */
+.wedding-viewport-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 20%, #2E2426 0%, #171213 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.wedding-desktop-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(139, 47, 48, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(200, 160, 120, 0.12) 0%, transparent 45%);
+  z-index: 0;
+}
+
+/* The Mobile View Frame (500px on Desktop, 100% on Mobile) */
+.wedding-app-shell {
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Template 39 Section Layouts */
+
+/* 1. HERO */
+.t39-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.t39-hero-top-script {
+  font-family: var(--font-script);
+  font-size: 52px;
+  color: #222222;
+  text-align: center;
+  padding: 30px 20px 10px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.t39-hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+}
+
+.t39-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.t39-hero-couple-overlay {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.t39-hero-couple-name {
+  font-family: var(--font-script);
+  font-size: 56px;
+  color: #1A1A1A;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.t39-hero-ampersand {
+  font-family: var(--font-script);
+  font-size: 38px;
+  color: #1A1A1A;
+  margin: -8px 0;
+}
+
+/* 2. CALENDAR SECTION */
+.t39-calendar-section {
+  padding: 40px 24px 30px;
+  background-color: #FFFFFF;
+}
+
+.t39-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.t39-cal-left-title {
+  font-family: var(--font-script);
+  font-size: 32px;
+  color: #222222;
+}
+
+.t39-cal-right-month {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: #222222;
+  font-weight: 500;
+}
+
+.t39-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px 6px;
+  text-align: center;
+}
+
+.t39-cal-day-cell {
+  position: relative;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #333333;
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+.t39-cal-heart-highlight {
+  position: absolute;
+  inset: -4px -6px;
+  background-image: url('/images/template39/calen_heart.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+
+.t39-cal-day-cell.highlighted {
+  color: #FFFFFF;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* 3. COUPLE CARDS */
+.t39-couple-section {
+  padding: 20px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  background-color: #FFFFFF;
+}
+
+.t39-profile-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  background-color: #FFFFFF;
+}
+
+.t39-profile-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.t39-profile-text-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+  text-align: left;
+}
+
+.t39-profile-role-script {
+  font-family: var(--font-script);
+  font-size: 34px;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.t39-profile-fullname {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+}
+
+.t39-profile-birthdate {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #FFFFFF;
+  opacity: 0.95;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  margin-top: 4px;
+}
+
+/* 4. NOTEBOOK LOVE STORY */
+.t39-love-story-section {
+  position: relative;
+  padding: 40px 24px;
+  background-color: #FFFFFF;
+}
+
+.t39-notebook-container {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.t39-notebook-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.t39-notebook-content-overlay {
+  position: absolute;
+  top: 12%;
+  left: 18%;
+  right: 12%;
+  bottom: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.t39-notebook-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+}
+
+.t39-notebook-body {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #333333;
+  text-align: justify;
+}
+
+.t39-notebook-subquotes {
+  margin-top: 16px;
+  font-family: var(--font-script);
+  font-size: 18px;
+  color: #666666;
+  line-height: 1.3;
+}
+
+/* 5. FAMILY & INVITATION SECTION */
+.t39-invitation-section {
+  padding: 40px 20px 30px;
+  text-align: center;
+  background-color: #FFFFFF;
+}
+
+.t39-parents-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.t39-parents-col h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 8px;
+}
+
+.t39-parents-col p {
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.t39-script-couple-names {
+  margin: 10px 0 30px;
+}
+
+.t39-script-bride, .t39-script-groom {
+  font-family: var(--font-script);
+  font-size: 58px;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.t39-script-amp {
+  font-family: var(--font-script);
+  font-size: 40px;
+  color: #1A1A1A;
+  margin: 4px 0;
+}
+
+.t39-invitation-greeting {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #222222;
+  margin-bottom: 6px;
+}
+
+.t39-invitation-time {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #333333;
+  margin-bottom: 24px;
+}
+
+/* SIGNATURE DATE BLOCK (THÁNG 12 | 15 | NĂM 2026) */
+.t39-signature-date-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #1A1A1A;
+  border-bottom: 1px solid #1A1A1A;
+  padding: 12px 10px;
+  margin: 16px auto 14px;
+  max-width: 420px;
+}
+
+.t39-date-month {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: #1A1A1A;
+  font-weight: 500;
+  flex: 1;
+  text-align: right;
+  padding-right: 18px;
+}
+
+.t39-date-big-num {
+  font-family: var(--font-serif);
+  font-size: 58px;
+  font-weight: 400;
+  color: #8B2F30; /* signature burgundy or dark */
+  line-height: 1;
+  padding: 0 16px;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.t39-date-year {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: #1A1A1A;
+  font-weight: 500;
+  flex: 1;
+  text-align: left;
+  padding-left: 18px;
+}
+
+.t39-lunar-date {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  color: #555555;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+}
+
+.t39-venue-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #1A1A1A;
+  max-width: 360px;
+  margin: 0 auto 16px;
+  line-height: 1.4;
+}
+
+.t39-map-container {
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  margin-bottom: 14px;
+}
+
+.t39-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.t39-venue-address {
+  font-size: 13.5px;
+  color: #444444;
+  margin-bottom: 20px;
+}
+
+/* 6. MIDDLE BANNER */
+.t39-middle-banner {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.t39-middle-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 7. TIMELINE SECTION */
+.t39-timeline-section {
+  padding: 50px 24px 30px;
+  text-align: center;
+  background-color: #FFFFFF;
+}
+
+.t39-timeline-title {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  color: #1A1A1A;
+  margin-bottom: 36px;
+}
+
+.t39-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.t39-timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.t39-timeline-icon {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+
+.t39-timeline-time {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: #222222;
+}
+
+.t39-timeline-event-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: #444444;
+}
+
+.t39-timeline-note {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: #444444;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 8. INLINE RSVP CARD */
+.t39-rsvp-card-container {
+  padding: 10px 24px 40px;
+  background-color: #FFFFFF;
+}
+
+.t39-rsvp-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  padding: 24px 20px;
+  text-align: left;
+}
+
+.t39-rsvp-title {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  color: #222222;
+  margin-bottom: 20px;
+}
+
+.t39-form-group {
+  margin-bottom: 16px;
+}
+
+.t39-form-label {
+  display: block;
+  font-size: 13.5px;
+  color: #333333;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.t39-form-input, .t39-form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 5px;
+  border: 1px solid #D5D5D5;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  background-color: #FFFFFF;
+  color: #333333;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.t39-form-input:focus, .t39-form-select:focus {
+  border-color: var(--color-burgundy);
+}
+
+.t39-radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.t39-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #333333;
+  cursor: pointer;
+}
+
+.t39-rsvp-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-burgundy);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.25s ease;
+}
+
+.t39-rsvp-submit-btn:hover {
+  background-color: var(--color-burgundy-dark);
+  transform: translateY(-1px);
+}
+
+/* 9. GIFT BOX ("HỘP YÊU THƯƠNG") */
+.t39-gift-section {
+  padding: 30px 24px 50px;
+  text-align: center;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.t39-gift-icon-wrapper {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 12px;
+  animation: giftWobble 2.5s ease-in-out infinite;
+}
+
+@keyframes giftWobble {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-5deg) scale(1.04); }
+  75% { transform: rotate(5deg) scale(1.04); }
+}
+
+.t39-gift-icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.t39-gift-title {
+  font-family: var(--font-script);
+  font-size: 34px;
+  color: #1A1A1A;
+}
+
+/* 10. COUNTDOWN & CLOSING */
+.t39-countdown-closing {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px 80px;
+}
+
+.t39-countdown-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.t39-countdown-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.65) 100%);
+  z-index: 2;
+}
+
+.t39-countdown-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.t39-countdown-title {
+  font-family: var(--font-script);
+  font-size: 54px;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.t39-countdown-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.t39-cd-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.t39-cd-number {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 1.1;
+}
+
+.t39-cd-label {
+  font-size: 11px;
+  color: #555555;
+  margin-top: 2px;
+}
+
+.t39-countdown-message {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+
+.t39-countdown-signature {
+  font-family: var(--font-script);
+  font-size: 42px;
+  color: #FFFFFF;
+  opacity: 0.9;
+}
+
+@keyframes scrollUpBlessings {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
